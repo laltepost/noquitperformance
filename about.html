@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About NOQUIT PERFORMANCE — Why We Built This</title>
+  <meta name="description" content="NØ QUIT was built for athletes who train hard, train consistently, and care what goes in. Here's why we built it.">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <style>
+    /* ABOUT-SPECIFIC */
+
+    .about-hero {
+      padding-top: var(--header-h);
+      background-color: var(--c-black);
+      overflow: hidden;
+    }
+    .about-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 100vh;
+    }
+    .about-hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--sp-9) var(--sp-7) var(--sp-9) var(--sp-6);
+    }
+    .about-hero-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(20%);
+    }
+    .about-hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--c-black) 0%, transparent 20%);
+    }
+
+    .about-mission {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(40px, 7vw, 88px);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--c-white);
+    }
+    .about-mission .em {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--c-steel-light);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+    .value-card {
+      padding: var(--sp-6) var(--sp-5);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      position: relative;
+      overflow: hidden;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background-color: var(--c-steel);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--t-slow) var(--ease);
+    }
+    .value-card:hover::before { transform: scaleX(1); }
+    .value-card-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 60px;
+      color: var(--c-surface-4);
+      line-height: 1;
+      margin-bottom: var(--sp-3);
+    }
+    .value-card h3 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--c-white);
+      margin-bottom: var(--sp-2);
+    }
+    .value-card p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--c-text);
+    }
+
+    .why-text {
+      max-width: 680px;
+    }
+    .why-text p + p { margin-top: var(--sp-4); }
+
+    .standard-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+    }
+    .standard-item {
+      display: flex;
+      gap: var(--sp-3);
+      align-items: flex-start;
+      padding: var(--sp-4);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-sm);
+    }
+    .standard-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 32px;
+      color: var(--c-steel);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 36px;
+    }
+    .standard-text h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--c-white);
+      margin-bottom: 4px;
+    }
+    .standard-text p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--c-text);
+    }
+
+    .about-product-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-8);
+      align-items: center;
+    }
+    .about-product-img {
+      height: 560px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      background-color: var(--c-surface-2);
+    }
+    .about-product-img img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+    }
+
+    .about-cta-block {
+      background: linear-gradient(135deg, var(--c-surface-2), var(--c-black));
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-8) var(--sp-7);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .about-hero-inner { grid-template-columns: 1fr; min-height: auto; }
+      .about-hero-img { height: 60vw; }
+      .about-hero-img::after { background: linear-gradient(to bottom, transparent 60%, var(--c-black)); }
+      .about-hero-text { padding: var(--sp-6) var(--sp-4); }
+      .values-grid { grid-template-columns: 1fr; }
+      .standard-list { grid-template-columns: 1fr; }
+      .about-product-split { grid-template-columns: 1fr; }
+      .about-product-img { height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header scrolled" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-mark"></a>
+    <nav class="main-nav">
+      <a href="science.html">Science</a>
+      <a href="about.html" style="color:var(--c-chalk);">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="product.html" class="nav-shop">Shop</a>
+    </nav>
+    <div class="header-right">
+      <button class="cart-trigger">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="product.html">Shop</a>
+  <a href="science.html">Science</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <div class="mobile-nav-footer">
+    <span class="t-label">noquitperformance.com</span>
+    <button id="mobileNavClose" class="btn-ghost t-label">Close</button>
+  </div>
+</nav>
+
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close-btn" id="cartClose">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <p>Your cart is empty.</p>
+      <a href="product.html" class="btn btn-outline">Shop NØ QUIT</a>
+    </div>
+    <div id="cartItemsWrap" style="display:none"></div>
+  </div>
+  <div class="cart-drawer-foot">
+    <div class="cart-totals">
+      <span class="cart-totals-label">Subtotal</span>
+      <span class="cart-totals-value" id="cartTotal">$0.00</span>
+    </div>
+    <a href="#" class="btn btn-primary btn--full btn--lg">Checkout</a>
+    <p class="cart-note">Free US shipping on orders over $65</p>
+  </div>
+</aside>
+
+<main>
+
+  <!-- HERO -->
+  <section class="about-hero" aria-labelledby="about-title">
+    <div class="about-hero-inner">
+      <div class="about-hero-text">
+        <div data-animate="fade" style="display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-5);">
+          <div style="width:28px;height:1px;background:var(--c-steel);"></div>
+          <span class="t-label">About NOQUIT PERFORMANCE</span>
+        </div>
+        <h1 class="about-mission" id="about-title" data-animate="up">
+          <span>Built for</span><br>
+          <span>the athlete</span><br>
+          <span class="em">who shows</span><br>
+          <span class="em">up.</span>
+        </h1>
+        <p class="t-body-lg mt-5" style="color:var(--c-text);max-width:400px;" data-animate="up" data-delay="2">
+          NØ QUIT was built for the athlete who cares more about consistency
+          than aesthetics. The one who trains hard, trains often, and needs
+          a supplement built the same way.
+        </p>
+        <div style="margin-top:var(--sp-5);" data-animate="up" data-delay="3">
+          <a href="product.html" class="btn btn-primary btn--lg">Shop NØ QUIT</a>
+        </div>
+      </div>
+
+      <div class="about-hero-img">
+        <img
+          src="images/The_Protocol_for_Intensity_version_3.png"
+          alt="NØ QUIT — The Protocol for Intensity"
+          loading="eager"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WE BUILT THIS -->
+  <section class="section section--alt" aria-labelledby="why-heading">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-4);">
+        <div style="width:28px;height:1px;background:var(--c-steel);"></div>
+        <span class="t-label" data-animate="fade">Why We Built This</span>
+      </div>
+      <h2 class="t-display-3 mb-6" id="why-heading" data-animate="up">
+        The supplement market<br>wasn't built for you.
+      </h2>
+      <div class="why-text">
+        <p class="t-body-lg" style="color:var(--c-text);" data-animate="up" data-delay="1">
+          Most performance supplements are built for the gym-selfie demographic.
+          High-stim pre-workouts. Fat burners with unsupported claims.
+          Tub-sized powders with 20 ingredients, half of them underdosed.
+          Products that promise everything and deliver a short-term jolt.
+        </p>
+        <p class="t-body-lg" style="color:var(--c-text);" data-animate="up" data-delay="2">
+          The athletes we built NØ QUIT for don't train for photos.
+          They train for performance. They show up Monday through Saturday.
+          They need something that actually supports consistency — not something
+          that generates a feeling.
+        </p>
+        <p class="t-body-lg" style="color:var(--c-text);" data-animate="up" data-delay="3">
+          NØ QUIT is one capsule. One ingredient. Built around published research.
+          Formulated at the studied dose. Manufactured clean. Tested independently.
+          Nothing more, nothing less.
+        </p>
+      </div>
+
+      <div style="margin-top:var(--sp-7);">
+        <blockquote style="border-left:2px solid var(--c-steel);padding-left:var(--sp-5);" data-animate="up" data-delay="4">
+          <p class="t-serif" style="font-size:clamp(22px,3vw,32px);color:var(--c-chalk);line-height:1.5;">
+            "Consistency is the edge. Not the jolt. Not the pump.
+            The capacity to come back tomorrow — and the day after that."
+          </p>
+          <cite style="display:block;font-family:var(--font-body);font-style:normal;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--c-text-dim);margin-top:var(--sp-3);">
+            — NOQUIT PERFORMANCE
+          </cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section section--dark" aria-labelledby="values-heading">
+    <div class="container">
+      <p class="t-label section-label" data-animate="fade">What We Stand For</p>
+      <h2 class="t-display-3 mb-6" id="values-heading" data-animate="up">
+        Three principles.<br>No compromises.
+      </h2>
+      <div class="values-grid">
+        <div class="value-card" data-animate="up" data-delay="1">
+          <div class="value-card-num">01</div>
+          <h3>Science First</h3>
+          <p>
+            Every formula decision starts with published research. We formulated to
+            match the science, not to minimize cost or maximize label impressiveness.
+            If the dose isn't right, it doesn't go in the bottle.
+          </p>
+        </div>
+        <div class="value-card" data-animate="up" data-delay="2">
+          <div class="value-card-num">02</div>
+          <h3>Full Transparency</h3>
+          <p>
+            No proprietary blends. No hidden doses. No vague ingredient clusters.
+            You know exactly what's in NØ QUIT, how much, and why. CoA available on request.
+            We think you deserve to know what you put in your body.
+          </p>
+        </div>
+        <div class="value-card" data-animate="up" data-delay="3">
+          <div class="value-card-num">03</div>
+          <h3>Built for Consistency</h3>
+          <p>
+            NØ QUIT is a daily supplement, not a pre-workout event. It's designed to support
+            the body over time — to be part of a consistent training practice, not a
+            single-session spike. Consistency is where results come from.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STANDARD -->
+  <section class="section section--alt" aria-labelledby="standard-heading">
+    <div class="container">
+      <p class="t-label section-label" data-animate="fade">Our Standard</p>
+      <h2 class="t-display-3 mb-6" id="standard-heading" data-animate="up">
+        How we build.
+      </h2>
+      <div class="standard-list">
+        <div class="standard-item" data-animate="up" data-delay="1">
+          <div class="standard-num">1</div>
+          <div class="standard-text">
+            <h4>Research-Aligned Dosing</h4>
+            <p>Every dose in NØ QUIT corresponds to the range studied in published research. No inflation. No guesswork.</p>
+          </div>
+        </div>
+        <div class="standard-item" data-animate="up" data-delay="2">
+          <div class="standard-num">2</div>
+          <div class="standard-text">
+            <h4>GMP Manufacturing</h4>
+            <p>Made in a US-based facility operating under cGMP — the FDA's standard for dietary supplements.</p>
+          </div>
+        </div>
+        <div class="standard-item" data-animate="up" data-delay="3">
+          <div class="standard-num">3</div>
+          <div class="standard-text">
+            <h4>Third-Party Testing</h4>
+            <p>Independent testing for identity, purity, potency, and contaminants. Every batch. Not just once.</p>
+          </div>
+        </div>
+        <div class="standard-item" data-animate="up" data-delay="4">
+          <div class="standard-num">4</div>
+          <div class="standard-text">
+            <h4>Honest Language</h4>
+            <p>We use only structure/function claims supported by research. No disease claims. No guaranteed outcomes. No hype.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PRODUCT -->
+  <section class="section section--dark" aria-labelledby="about-product-heading">
+    <div class="container">
+      <div class="about-product-split">
+        <div>
+          <p class="t-label section-label" data-animate="fade">The Product</p>
+          <h2 class="t-display-3" id="about-product-heading" data-animate="up">
+            One capsule.<br>One ingredient.<br>
+            <span class="t-serif" style="font-size:0.75em;color:var(--c-steel-light);">Built to last.</span>
+          </h2>
+          <div class="divider divider--v" data-animate="fade" data-delay="1"></div>
+          <p class="t-body-lg" style="color:var(--c-text);max-width:420px;" data-animate="up" data-delay="1">
+            NØ QUIT Phenylcapsaicin Capsules. 60 capsules. 2.5mg phenylcapsaicin
+            (aXivite®) per serving. A full month of consistent daily support for
+            athletes who train hard and come back harder.
+          </p>
+          <div style="margin-top:var(--sp-5);display:flex;flex-direction:column;gap:var(--sp-3);" data-animate="up" data-delay="2">
+            <a href="product.html" class="btn btn-primary btn--lg">Shop NØ QUIT — $59</a>
+            <a href="science.html" class="btn btn-outline">Read the science →</a>
+          </div>
+        </div>
+        <div class="about-product-img" data-animate="scale">
+          <img
+            src="images/pomelli-image.png"
+            alt="NØ QUIT Phenylcapsaicin Capsules — 3 bottles"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <section class="section" style="background:var(--c-surface);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);">
+    <div class="container container--sm" style="text-align:center;">
+      <p class="t-label mb-3" data-animate="fade">Stay Connected</p>
+      <h2 class="t-display-3 mb-3" data-animate="up">
+        The first to know.<br>The last to quit.
+      </h2>
+      <p class="t-body mb-5" style="color:var(--c-text);" data-animate="up" data-delay="1">
+        Performance insights, product updates, and launch news from the NØ QUIT team.
+      </p>
+      <form class="email-form" action="#" method="post" data-animate="up" data-delay="2">
+        <label class="visually-hidden" for="emailAbout">Email address</label>
+        <input class="email-input" id="emailAbout" type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn-primary">Join</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-mark"></a>
+        <p>A phenylcapsaicin capsule for functional fitness athletes who train hard and come back harder.</p>
+        <a href="product.html" class="btn btn-outline" style="font-size:11px;padding:12px 20px;">Shop NØ QUIT</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="product.html">NØ QUIT Capsules</a>
+        <a href="product.html#subscribe">Subscribe &amp; Save</a>
+        <a href="faq.html#shipping">Shipping Info</a>
+        <a href="faq.html#returns">Returns</a>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="science.html">The Science</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        © 2025 NOQUIT PERFORMANCE LLC — United States Only ·
+        These statements have not been evaluated by the FDA.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-badge">GMP</span>
+        <span class="footer-badge">3rd-Party Tested</span>
+        <span class="footer-badge">US Only</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

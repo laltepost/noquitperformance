@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Science Behind NØ QUIT — Phenylcapsaicin &amp; Performance</title>
+  <meta name="description" content="Plain-English science behind phenylcapsaicin. What the research observed, what it means for athletes, and how NØ QUIT applies it.">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <style>
+    /* ── SCIENCE-SPECIFIC ──────────────────────────── */
+
+    /* HERO */
+    .science-hero {
+      padding-top: var(--header-h);
+      padding-bottom: var(--sp-9);
+      background-color: var(--c-black);
+      position: relative;
+      overflow: hidden;
+    }
+    .science-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 45vw;
+      height: 100%;
+      background: radial-gradient(ellipse at 70% 40%, rgba(110, 132, 148, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .science-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-8);
+      align-items: center;
+      padding-top: var(--sp-8);
+    }
+    .science-hero-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(120px, 20vw, 240px);
+      line-height: 1;
+      color: var(--c-surface-3);
+      letter-spacing: -0.04em;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      user-select: none;
+    }
+    .science-hero-img {
+      position: relative;
+      height: 520px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .science-hero-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    /* INTRO QUOTE */
+    .intro-quote {
+      border-left: 2px solid var(--c-steel);
+      padding-left: var(--sp-5);
+      margin: var(--sp-6) 0;
+    }
+    .intro-quote p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(20px, 3vw, 28px);
+      color: var(--c-chalk);
+      line-height: 1.5;
+    }
+    .intro-quote cite {
+      display: block;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-text-dim);
+      margin-top: var(--sp-2);
+    }
+
+    /* SECTION DIVIDER */
+    .section-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--c-text-dim);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-4);
+    }
+    .section-num::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background-color: var(--c-border-2);
+    }
+
+    /* COMPOUND */
+    .compound-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    /* DATA BLOCKS */
+    .data-block {
+      background-color: var(--c-surface-2);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: var(--sp-5);
+    }
+    .data-block-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-steel);
+      margin-bottom: var(--sp-2);
+    }
+    .data-block-value {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 40px;
+      color: var(--c-steel-light);
+      line-height: 1;
+      margin-bottom: var(--sp-1);
+    }
+    .data-block-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--c-text);
+    }
+
+    /* OBSERVED / MEANS */
+    .observed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-5);
+    }
+    .observed-card {
+      padding: var(--sp-6);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+    }
+    .observed-card.positive { border-left: 3px solid var(--c-steel); }
+    .observed-card.neutral  { border-left: 3px solid var(--c-border-2); }
+    .observed-card-type {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-text-dim);
+      margin-bottom: var(--sp-3);
+    }
+    .observed-card h3 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--c-white);
+      margin-bottom: var(--sp-3);
+      line-height: 1.1;
+    }
+    .observed-card ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .observed-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-2);
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--c-text);
+    }
+    .observed-card li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--c-steel);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* DOSING */
+    .dosing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+    .dosing-card {
+      padding: var(--sp-5);
+      background-color: var(--c-surface-2);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+    }
+    .dosing-step {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 48px;
+      color: var(--c-surface-4);
+      line-height: 1;
+      margin-bottom: var(--sp-3);
+    }
+    .dosing-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--c-white);
+      margin-bottom: var(--sp-2);
+      letter-spacing: 0.01em;
+    }
+    .dosing-body {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--c-text);
+    }
+
+    /* QUALITY */
+    .quality-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+    .quality-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-4);
+      padding: var(--sp-4);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-sm);
+    }
+    .quality-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--c-border-2);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--c-steel);
+    }
+    .quality-text h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--c-white);
+      margin-bottom: 4px;
+    }
+    .quality-text p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--c-text);
+    }
+
+    /* DISCLAIMER BOX */
+    .disclaimer-box {
+      background-color: var(--c-surface-2);
+      border: 1px solid var(--c-border-2);
+      border-radius: var(--r-md);
+      padding: var(--sp-5) var(--sp-6);
+    }
+    .disclaimer-box p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--c-text);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .science-hero-inner { grid-template-columns: 1fr; }
+      .science-hero-img { height: 300px; }
+      .compound-grid { grid-template-columns: 1fr; }
+      .observed-grid { grid-template-columns: 1fr; }
+      .dosing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header scrolled" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-mark"></a>
+    <nav class="main-nav">
+      <a href="science.html" style="color:var(--c-chalk);">Science</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="product.html" class="nav-shop">Shop</a>
+    </nav>
+    <div class="header-right">
+      <button class="cart-trigger">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="product.html">Shop</a>
+  <a href="science.html">Science</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <div class="mobile-nav-footer">
+    <span class="t-label">noquitperformance.com</span>
+    <button id="mobileNavClose" class="btn-ghost t-label">Close</button>
+  </div>
+</nav>
+
+<!-- CART -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close-btn" id="cartClose">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <p>Your cart is empty.</p>
+      <a href="product.html" class="btn btn-outline">Shop NØ QUIT</a>
+    </div>
+    <div id="cartItemsWrap" style="display:none"></div>
+  </div>
+  <div class="cart-drawer-foot">
+    <div class="cart-totals">
+      <span class="cart-totals-label">Subtotal</span>
+      <span class="cart-totals-value" id="cartTotal">$0.00</span>
+    </div>
+    <a href="#" class="btn btn-primary btn--full btn--lg">Checkout</a>
+    <p class="cart-note">Free US shipping on orders over $65</p>
+  </div>
+</aside>
+
+<!-- ==========================================
+     MAIN
+========================================== -->
+<main>
+
+  <!-- ── HERO ──────────────────────────────────────── -->
+  <section class="science-hero" aria-labelledby="science-title">
+    <div class="container">
+      <div class="science-hero-inner">
+        <div>
+          <div data-animate="fade" style="display:flex;align-items:center;gap:var(--sp-2);margin-bottom:var(--sp-4);">
+            <div style="width:28px;height:1px;background:var(--c-steel);"></div>
+            <span class="t-label">The Science</span>
+          </div>
+          <h1 class="t-display-2" id="science-title" data-animate="up">
+            Phenyl-<br>capsaicin.
+          </h1>
+          <p class="t-body-lg mt-3" style="color:var(--c-text);max-width:420px;" data-animate="up" data-delay="2">
+            A next-generation capsaicinoid with documented research on exercise performance.
+            Here's what the science actually shows — and what it doesn't.
+          </p>
+
+          <div class="intro-quote" data-animate="up" data-delay="3">
+            <p>
+              "The data points to something real. We built NØ QUIT around what the
+              research shows — not around what sounds impressive."
+            </p>
+            <cite>— NOQUIT PERFORMANCE</cite>
+          </div>
+
+          <div data-animate="up" data-delay="4">
+            <a href="product.html" class="btn btn-primary btn--lg">Shop NØ QUIT — $59</a>
+          </div>
+        </div>
+
+        <div class="science-hero-img" data-animate="scale">
+          <img
+            src="images/Precision-engineered_output__version_1.png"
+            alt="NØ QUIT Performance — precision-engineered output"
+            loading="eager"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-item">Phenylcapsaicin<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Published Research<span class="ticker-dot"></span></div>
+      <div class="ticker-item">2.5mg Daily Dose<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Third-Party Tested<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Full Label Disclosure<span class="ticker-dot"></span></div>
+      <div class="ticker-item">GMP Certified<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Phenylcapsaicin<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Published Research<span class="ticker-dot"></span></div>
+      <div class="ticker-item">2.5mg Daily Dose<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Third-Party Tested<span class="ticker-dot"></span></div>
+      <div class="ticker-item">Full Label Disclosure<span class="ticker-dot"></span></div>
+      <div class="ticker-item">GMP Certified<span class="ticker-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- ── THE COMPOUND ───────────────────────────────── -->
+  <section class="section section--dark" aria-labelledby="compound-heading">
+    <div class="container">
+      <div class="section-num" data-animate="fade">01</div>
+      <h2 class="t-display-3 mb-6" id="compound-heading" data-animate="up">
+        What is<br>phenylcapsaicin?
+      </h2>
+
+      <div class="compound-grid">
+        <div>
+          <p class="t-body-lg" style="color:var(--c-text);" data-animate="up" data-delay="1">
+            Phenylcapsaicin is a synthetic capsaicinoid — a structural analog of capsaicin,
+            the compound found in chili peppers responsible for their heat.
+          </p>
+          <p class="t-body mt-4" style="color:var(--c-text);" data-animate="up" data-delay="2">
+            Unlike natural capsaicin, phenylcapsaicin has been engineered for improved bioavailability
+            and a cleaner sensory profile — meaning more active compound reaches the relevant receptors,
+            with less of the gastric irritation associated with high doses of natural capsaicin.
+          </p>
+          <p class="t-body mt-4" style="color:var(--c-text);" data-animate="up" data-delay="3">
+            The compound acts primarily as a TRPV1 agonist, triggering cellular responses
+            that have been observed to support energy metabolism and exercise performance in
+            multiple published studies.
+          </p>
+          <div class="divider divider--v" data-animate="fade" data-delay="3"></div>
+          <p class="t-body" style="color:var(--c-text-dim);font-size:13px;" data-animate="up" data-delay="4">
+            <strong style="color:var(--c-text);">aXivite®</strong> is a standardized, patented form of phenylcapsaicin used in
+            the research we reference. NØ QUIT uses aXivite® at the clinically-studied dose.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:var(--sp-3);" data-animate="up" data-delay="2">
+          <div class="data-block">
+            <p class="data-block-label">Compound Class</p>
+            <div class="data-block-value" style="font-size:24px;letter-spacing:0.02em;">Capsaicinoid</div>
+            <p class="data-block-desc">Synthetic analog of natural capsaicin. Engineered for bioavailability.</p>
+          </div>
+          <div class="data-block">
+            <p class="data-block-label">Primary Receptor</p>
+            <div class="data-block-value" style="font-size:24px;">TRPV1</div>
+            <p class="data-block-desc">Transient receptor potential vanilloid 1. Associated with thermogenesis and energy regulation.</p>
+          </div>
+          <div class="data-block">
+            <p class="data-block-label">Form Used in NØ QUIT</p>
+            <div class="data-block-value" style="font-size:24px;">aXivite®</div>
+            <p class="data-block-desc">Patented, standardized form. Used in published peer-reviewed research.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT WAS OBSERVED ─────────────────────────── -->
+  <section class="section section--alt" aria-labelledby="observed-heading">
+    <div class="container">
+      <div class="section-num" data-animate="fade">02</div>
+      <h2 class="t-display-3 mb-2" id="observed-heading" data-animate="up">
+        What the research observed.
+      </h2>
+      <p class="t-body-lg mb-6" style="color:var(--c-text);max-width:580px;" data-animate="up" data-delay="1">
+        Published research on phenylcapsaicin (aXivite®) has observed effects
+        on several key exercise performance markers. Here's what the data shows.
+      </p>
+
+      <div class="observed-grid">
+        <div class="observed-card positive" data-animate="up" data-delay="1">
+          <p class="observed-card-type">Observed Effects</p>
+          <h3>Performance &amp; Metabolism</h3>
+          <ul>
+            <li>Improvements in VO₂ max (maximal oxygen uptake) in trained athletes</li>
+            <li>Increased time-to-exhaustion during high-intensity exercise protocols</li>
+            <li>Enhanced fat oxidation during aerobic and high-intensity exercise</li>
+            <li>Improved metabolic efficiency — more output per unit of energy</li>
+          </ul>
+        </div>
+
+        <div class="observed-card positive" data-animate="up" data-delay="2">
+          <p class="observed-card-type">Observed Effects</p>
+          <h3>Recovery &amp; Readiness</h3>
+          <ul>
+            <li>Faster restoration of performance markers between sessions</li>
+            <li>Reduced perception of effort at equivalent work intensities</li>
+            <li>Improved training readiness indicators in repeat-effort protocols</li>
+            <li>Effects observed at the 2.5mg daily dose range</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--sp-5);" data-animate="up" data-delay="3">
+        <div class="disclaimer-box">
+          <p class="t-label mb-3">Research Context</p>
+          <p>
+            The studies referenced used trained athletes in controlled laboratory settings.
+            Individual results vary. Research findings describe observed effects under study conditions
+            and do not constitute a guarantee of equivalent individual outcomes.
+            NØ QUIT makes no claims beyond the structure/function language supported by the available research.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT IT MEANS ─────────────────────────────── -->
+  <section class="section section--dark" aria-labelledby="means-heading">
+    <div class="container">
+      <div class="section-num" data-animate="fade">03</div>
+      <h2 class="t-display-3 mb-6" id="means-heading" data-animate="up">
+        What it means.<br>What it doesn't.
+      </h2>
+
+      <div class="grid-2">
+        <div data-animate="up" data-delay="1">
+          <p class="t-label mb-3" style="color:var(--c-steel-light);">What the science supports</p>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+            <div style="padding:var(--sp-4);border-left:2px solid var(--c-steel);padding-left:var(--sp-4);">
+              <p class="t-body" style="color:var(--c-chalk);">
+                Phenylcapsaicin supports energy metabolism during high-intensity exercise.
+                The compound appears to improve how the body generates and uses energy at peak effort.
+              </p>
+            </div>
+            <div style="padding:var(--sp-4);border-left:2px solid var(--c-steel);padding-left:var(--sp-4);">
+              <p class="t-body" style="color:var(--c-chalk);">
+                Research observes improvements in time-to-exhaustion. This suggests the compound
+                may support the ability to sustain intensity for longer before fatigue forces a reduction in effort.
+              </p>
+            </div>
+            <div style="padding:var(--sp-4);border-left:2px solid var(--c-steel);padding-left:var(--sp-4);">
+              <p class="t-body" style="color:var(--c-chalk);">
+                Recovery-related markers improved between sessions in studied protocols.
+                Consistent daily use — not just pre-workout use — appears to be the effective approach.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div data-animate="up" data-delay="2">
+          <p class="t-label mb-3" style="color:var(--c-text-dim);">What the science does not claim</p>
+          <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+            <div style="padding:var(--sp-4);border-left:2px solid var(--c-border-2);padding-left:var(--sp-4);">
+              <p class="t-body" style="color:var(--c-text);">
+                This is not a fat-loss product. While fat oxidation was observed during exercise,
+                NØ QUIT makes no body composition claims. The research context is exercise performance.
+              </p>
+            </div>
+            <div style="padding:var(--sp-4);border-left:2px solid var(--c-border-2);padding-left:var(--sp-4);">
+              <p class="t-body" style="color:var(--c-text);">
+                No disease treatment claims. This product is a dietary supplement.
+                It is not intended to diagnose, treat, cure, or prevent any disease or medical condition.
+              </p>
+            </div>
+            <div style="padding:var(--sp-4);border-left:2px solid var(--c-border-2);padding-left:var(--sp-4);">
+              <p class="t-body" style="color:var(--c-text);">
+                No guaranteed performance outcomes. Research describes statistical effects in study populations.
+                Individual responses vary. NØ QUIT is a support tool — training, sleep, and nutrition remain foundational.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DOSING ─────────────────────────────────────── -->
+  <section class="section section--alt" aria-labelledby="dosing-heading">
+    <div class="container">
+      <div class="section-num" data-animate="fade">04</div>
+      <h2 class="t-display-3 mb-6" id="dosing-heading" data-animate="up">
+        The protocol.
+      </h2>
+      <div class="dosing-grid">
+        <div class="dosing-card" data-animate="up" data-delay="1">
+          <div class="dosing-step">01</div>
+          <div class="dosing-title">Daily Dose</div>
+          <p class="dosing-body">
+            Take 2 capsules daily (2.5mg total — 1.25mg per capsule). Research effects were observed at consistent daily use —
+            not single-dose acute loading. Do not exceed 2 capsules per day.
+          </p>
+        </div>
+        <div class="dosing-card" data-animate="up" data-delay="2">
+          <div class="dosing-step">02</div>
+          <div class="dosing-title">On Training Days</div>
+          <p class="dosing-body">
+            Take 30–60 minutes before your training session for alignment with
+            the window used in exercise studies. Take with water.
+          </p>
+        </div>
+        <div class="dosing-card" data-animate="up" data-delay="3">
+          <div class="dosing-step">03</div>
+          <div class="dosing-title">On Rest Days</div>
+          <p class="dosing-body">
+            Take with your first meal of the day. Consistent daily use — regardless
+            of training — appears to support sustained effects across the week.
+          </p>
+        </div>
+      </div>
+      <div style="margin-top:var(--sp-5);" data-animate="up" data-delay="4">
+        <div class="disclaimer-box">
+          <p>
+            <strong style="color:var(--c-chalk);">Note:</strong> If you are pregnant, nursing, taking medications, or have
+            a medical condition, consult your healthcare provider before use. Keep out of reach of children.
+            Store in a cool, dry place below 77°F (25°C).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUALITY & TRANSPARENCY ───────────────────── -->
+  <section class="section section--dark" aria-labelledby="quality-heading">
+    <div class="container container--md">
+      <div class="section-num" data-animate="fade">05</div>
+      <h2 class="t-display-3 mb-2" id="quality-heading" data-animate="up">
+        Quality.<br>Transparency.
+      </h2>
+      <p class="t-body-lg mb-6" style="color:var(--c-text);" data-animate="up" data-delay="1">
+        We believe you have the right to know exactly what's in the bottle, where it came from,
+        and how it was tested. Here's how NØ QUIT is built.
+      </p>
+
+      <div class="quality-list" data-animate="up" data-delay="2">
+        <div class="quality-item">
+          <div class="quality-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="quality-text">
+            <h4>GMP-Certified Manufacturing</h4>
+            <p>
+              NØ QUIT is manufactured in a US-based facility certified under
+              Good Manufacturing Practices (cGMP) — the FDA's standard for
+              dietary supplement production. This means controlled processes,
+              documented procedures, and traceable materials.
+            </p>
+          </div>
+        </div>
+
+        <div class="quality-item">
+          <div class="quality-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <div class="quality-text">
+            <h4>Independent Third-Party Testing</h4>
+            <p>
+              Every batch is tested by an independent, accredited laboratory
+              for identity, purity, potency, and contaminants. We don't rely
+              on manufacturer certificates alone. Certificate of Analysis (CoA)
+              available on request.
+            </p>
+          </div>
+        </div>
+
+        <div class="quality-item">
+          <div class="quality-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div class="quality-text">
+            <h4>Full Label Disclosure</h4>
+            <p>
+              No proprietary blends. Every ingredient and its exact dose is declared
+              on the label. Phenylcapsaicin (aXivite®) at 2.5mg per serving, plus the
+              minimum necessary excipients. That's it.
+            </p>
+          </div>
+        </div>
+
+        <div class="quality-item">
+          <div class="quality-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+            </svg>
+          </div>
+          <div class="quality-text">
+            <h4>Research-Aligned Dosing</h4>
+            <p>
+              The 2.5mg phenylcapsaicin dose is not arbitrary. It aligns with the dose
+              range used in the published research we reference. We formulated
+              to match the science, not to minimize cost or maximize label claims.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--sp-7);display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5);align-items:center;" data-animate="up" data-delay="3">
+        <div>
+          <p class="t-display-4" style="color:var(--c-white);">
+            Ready to train harder<br>and come back stronger?
+          </p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
+          <a href="product.html" class="btn btn-primary btn--lg">Shop NØ QUIT — $59</a>
+          <a href="faq.html" class="btn btn-outline">Read the FAQ →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-mark"></a>
+        <p>A phenylcapsaicin capsule for functional fitness athletes who train hard and come back harder.</p>
+        <a href="product.html" class="btn btn-outline" style="font-size:11px;padding:12px 20px;">Shop NØ QUIT</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="product.html">NØ QUIT Capsules</a>
+        <a href="product.html#subscribe">Subscribe &amp; Save</a>
+        <a href="faq.html#shipping">Shipping Info</a>
+        <a href="faq.html#returns">Returns</a>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="science.html">The Science</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        © 2025 NOQUIT PERFORMANCE LLC — United States Only ·
+        These statements have not been evaluated by the FDA.
+        This product is not intended to diagnose, treat, cure, or prevent any disease.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-badge">GMP</span>
+        <span class="footer-badge">3rd-Party Tested</span>
+        <span class="footer-badge">US Only</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

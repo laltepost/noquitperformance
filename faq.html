@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — NOQUIT PERFORMANCE</title>
+  <meta name="description" content="Frequently asked questions about NØ QUIT Phenylcapsaicin Capsules. Product, science, dosing, shipping, and returns.">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <style>
+    /* FAQ-SPECIFIC */
+
+    .faq-hero {
+      padding-top: calc(var(--header-h) + var(--sp-8));
+      padding-bottom: var(--sp-8);
+      background-color: var(--c-black);
+      text-align: center;
+    }
+    .faq-hero h1 {
+      margin-bottom: var(--sp-4);
+    }
+    .faq-hero p {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .faq-nav {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+      margin-top: var(--sp-6);
+    }
+    .faq-nav-btn {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-text);
+      border: 1px solid var(--c-border-2);
+      border-radius: 100px;
+      padding: 8px 18px;
+      transition: all var(--t-mid) var(--ease);
+      cursor: pointer;
+      background: transparent;
+    }
+    .faq-nav-btn:hover,
+    .faq-nav-btn.active {
+      color: var(--c-white);
+      border-color: var(--c-steel);
+      background-color: var(--c-steel-glow);
+    }
+
+    .faq-main {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+    .faq-sidebar {
+      position: sticky;
+      top: calc(var(--header-h) + var(--sp-4));
+    }
+    .faq-sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+    }
+    .faq-sidebar-link {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-text);
+      padding: 10px var(--sp-3);
+      border-left: 2px solid transparent;
+      transition: all var(--t-fast);
+    }
+    .faq-sidebar-link:hover,
+    .faq-sidebar-link.active {
+      color: var(--c-chalk);
+      border-left-color: var(--c-steel);
+      padding-left: calc(var(--sp-3) + 4px);
+    }
+
+    .faq-section {
+      margin-bottom: var(--sp-8);
+    }
+    .faq-section:last-child { margin-bottom: 0; }
+    .faq-section-label {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--c-steel);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-4);
+    }
+    .faq-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--c-border);
+    }
+    .faq-section h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--c-white);
+      margin-bottom: var(--sp-4);
+      letter-spacing: -0.01em;
+    }
+
+    .contact-block {
+      background-color: var(--c-surface-2);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-7) var(--sp-6);
+      text-align: center;
+    }
+    .contact-block h3 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 32px;
+      color: var(--c-white);
+      margin-bottom: var(--sp-3);
+    }
+    .contact-block p {
+      font-size: 14px;
+      color: var(--c-text);
+      max-width: 360px;
+      margin: 0 auto var(--sp-5);
+      line-height: 1.75;
+    }
+    .contact-options {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .faq-main { grid-template-columns: 1fr; }
+      .faq-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header scrolled" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-mark"></a>
+    <nav class="main-nav">
+      <a href="science.html">Science</a>
+      <a href="about.html">About</a>
+      <a href="faq.html" style="color:var(--c-chalk);">FAQ</a>
+      <a href="product.html" class="nav-shop">Shop</a>
+    </nav>
+    <div class="header-right">
+      <button class="cart-trigger">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="product.html">Shop</a>
+  <a href="science.html">Science</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <div class="mobile-nav-footer">
+    <span class="t-label">noquitperformance.com</span>
+    <button id="mobileNavClose" class="btn-ghost t-label">Close</button>
+  </div>
+</nav>
+
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close-btn" id="cartClose">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <p>Your cart is empty.</p>
+      <a href="product.html" class="btn btn-outline">Shop NØ QUIT</a>
+    </div>
+    <div id="cartItemsWrap" style="display:none"></div>
+  </div>
+  <div class="cart-drawer-foot">
+    <div class="cart-totals">
+      <span class="cart-totals-label">Subtotal</span>
+      <span class="cart-totals-value" id="cartTotal">$0.00</span>
+    </div>
+    <a href="#" class="btn btn-primary btn--full btn--lg">Checkout</a>
+    <p class="cart-note">Free US shipping on orders over $65</p>
+  </div>
+</aside>
+
+<main>
+
+  <!-- HERO -->
+  <section class="faq-hero" aria-labelledby="faq-title">
+    <div class="container">
+      <p class="t-label mb-3" data-animate="fade">Help &amp; Information</p>
+      <h1 class="t-display-2" id="faq-title" data-animate="up">
+        Frequently Asked<br>Questions.
+      </h1>
+      <p class="t-body mt-3" style="color:var(--c-text);" data-animate="up" data-delay="1">
+        Straight answers to the most common questions about NØ QUIT.
+      </p>
+      <div class="faq-nav" data-animate="up" data-delay="2" role="list" aria-label="Jump to section">
+        <a class="faq-nav-btn" href="#product">The Product</a>
+        <a class="faq-nav-btn" href="#science">Science</a>
+        <a class="faq-nav-btn" href="#dosing">Dosing</a>
+        <a class="faq-nav-btn" href="#shipping">Shipping</a>
+        <a class="faq-nav-btn" href="#returns">Returns</a>
+        <a class="faq-nav-btn" href="#subscription">Subscription</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ CONTENT ────────────────────────────────── -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="faq-main">
+
+        <!-- SIDEBAR -->
+        <aside class="faq-sidebar" aria-label="FAQ sections">
+          <div class="faq-sidebar-nav">
+            <a class="faq-sidebar-link active" href="#product">The Product</a>
+            <a class="faq-sidebar-link" href="#science">Science</a>
+            <a class="faq-sidebar-link" href="#dosing">Dosing</a>
+            <a class="faq-sidebar-link" href="#shipping">Shipping</a>
+            <a class="faq-sidebar-link" href="#returns">Returns</a>
+            <a class="faq-sidebar-link" href="#subscription">Subscription</a>
+          </div>
+          <div style="margin-top:var(--sp-6);padding:var(--sp-4);border:1px solid var(--c-border);border-radius:var(--r-sm);">
+            <p class="t-label mb-2">Still have questions?</p>
+            <p style="font-size:12px;color:var(--c-text);line-height:1.7;">
+              Our team responds within 24 hours on business days.
+            </p>
+            <a href="mailto:support@noquitperformance.com" class="btn btn-outline" style="margin-top:var(--sp-3);font-size:11px;padding:10px 16px;">Email Us</a>
+          </div>
+        </aside>
+
+        <!-- ACCORDIONS -->
+        <div>
+
+          <!-- THE PRODUCT -->
+          <div class="faq-section" id="product" data-animate="up">
+            <p class="faq-section-label">The Product</p>
+            <div class="accordion-item">
+              <button class="accordion-btn">What is NØ QUIT?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                NØ QUIT is a single-ingredient dietary supplement — 2.5mg of phenylcapsaicin per serving
+                (2 capsules of 1.25mg each), designed to support energy metabolism and exercise performance during high-intensity training.
+                60 capsules per bottle. 30 servings. No stimulants. No artificial additives.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">What is phenylcapsaicin?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Phenylcapsaicin is a synthetic capsaicinoid — a compound similar to capsaicin (found in chili peppers)
+                but engineered for better bioavailability and a cleaner sensory profile. NØ QUIT uses aXivite®,
+                a patented, standardized form of phenylcapsaicin studied in published exercise research.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Is this a pre-workout?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                No. NØ QUIT is not a pre-workout. It contains no stimulants, no caffeine, and is not
+                designed to produce an acute energy spike. It is a daily capsule designed for consistent
+                daily use — building support over time rather than delivering a short-term effect.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Is this a fat burner or weight-loss product?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                No. NØ QUIT makes no weight-loss or fat-burning claims. While some phenylcapsaicin
+                research observed effects on fat oxidation during exercise, this product is formulated
+                and marketed for exercise performance and recovery support — not body composition changes.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">What are the other ingredients?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Other Ingredients: Microcrystalline Cellulose (inert filler), Vegetable Capsule (Hypromellose),
+                Magnesium Stearate (vegetable source, flow agent). These are standard, minimal excipients
+                required for capsule manufacturing at a 2.5mg active dose. No artificial colors, no artificial flavors.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Is NØ QUIT tested by a third party?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Yes. Every batch of NØ QUIT is independently tested by an accredited third-party laboratory
+                for identity, purity, potency, and contaminants. Certificate of Analysis (CoA) available on request.
+                Contact us at support@noquitperformance.com.
+              </div></div>
+            </div>
+          </div>
+
+          <!-- SCIENCE -->
+          <div class="faq-section" id="science" data-animate="up">
+            <p class="faq-section-label">Science</p>
+            <div class="accordion-item">
+              <button class="accordion-btn">What does the research show about phenylcapsaicin?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Published peer-reviewed research on phenylcapsaicin (aXivite®) has observed improvements in
+                VO₂ max, time-to-exhaustion, and metabolic efficiency during high-intensity exercise in trained athletes.
+                Recovery-related markers also improved in repeat-effort protocols. NØ QUIT is formulated at the dose
+                range studied (2.5mg daily). For more detail, see our Science page.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Are the claims evaluated by the FDA?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                NØ QUIT is a dietary supplement. Dietary supplement claims are not evaluated by the FDA in the same way
+                as drug claims. All NØ QUIT language uses structure/function claims only — the compound "supports" performance
+                and recovery. This product is not intended to diagnose, treat, cure, or prevent any disease.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Where is NØ QUIT manufactured?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                NØ QUIT is manufactured in the United States in a facility operating under cGMP (Current Good Manufacturing
+                Practices) — the FDA's quality standard for dietary supplement production.
+              </div></div>
+            </div>
+          </div>
+
+          <!-- DOSING -->
+          <div class="faq-section" id="dosing" data-animate="up">
+            <p class="faq-section-label">Dosing</p>
+            <div class="accordion-item">
+              <button class="accordion-btn">How do I take NØ QUIT?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Take 2 capsules daily with water. On training days, take 30–60 minutes before your session.
+                On rest days, take with your first meal of the day. Do not exceed 2 capsules per 24 hours.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">How long until I feel results?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                NØ QUIT is not a stimulant — it does not produce an acute effect in the first dose.
+                Most users report noticing effects within 2–4 weeks of consistent daily use. Consistency
+                matters more than timing. Think of it as a daily support tool, not a pre-workout.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Can I take NØ QUIT with other supplements?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                NØ QUIT contains no stimulants and is generally compatible with most other supplements.
+                If you are taking any medications, have a medical condition, or are pregnant or nursing,
+                consult your healthcare provider before use.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Can I take NØ QUIT on an empty stomach?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Yes. Taking NØ QUIT on an empty stomach before training is acceptable. Some users with sensitive
+                stomachs may prefer taking it with a light meal. If you experience any gastric discomfort, take with food.
+              </div></div>
+            </div>
+          </div>
+
+          <!-- SHIPPING -->
+          <div class="faq-section" id="shipping" data-animate="up">
+            <p class="faq-section-label">Shipping</p>
+            <div class="accordion-item">
+              <button class="accordion-btn">Where do you ship?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                NØ QUIT ships within the United States only. We do not ship internationally at this time.
+                All orders ship from our US fulfillment center.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">What are the shipping options and costs?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Free standard shipping on orders over $65.
+                Standard shipping (5–7 business days): $6.95.
+                Expedited shipping (2–3 business days): $14.95.
+                Express overnight (1 business day): $24.95. (Limited availability — see checkout for availability by zip code.)
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">How long does fulfillment take?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Most orders are fulfilled within 1–2 business days. You will receive a shipping confirmation
+                email with tracking information once your order ships.
+              </div></div>
+            </div>
+          </div>
+
+          <!-- RETURNS -->
+          <div class="faq-section" id="returns" data-animate="up">
+            <p class="faq-section-label">Returns</p>
+            <div class="accordion-item">
+              <button class="accordion-btn">What is your return policy?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                We offer a 30-day satisfaction guarantee on first orders. If NØ QUIT isn't right for you,
+                contact us within 30 days of delivery for a full refund. We will provide a prepaid return label.
+                Opened bottles are eligible for return under first-order satisfaction policy.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">How do I initiate a return?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Email support@noquitperformance.com with your order number and reason for return.
+                Our team will respond within 1 business day with instructions and a prepaid return label where applicable.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">When will I receive my refund?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Refunds are processed within 5–7 business days of receiving the returned item.
+                Depending on your payment provider, funds may take an additional 3–5 business days to appear.
+              </div></div>
+            </div>
+          </div>
+
+          <!-- SUBSCRIPTION -->
+          <div class="faq-section" id="subscription" data-animate="up">
+            <p class="faq-section-label">Subscription</p>
+            <div class="accordion-item">
+              <button class="accordion-btn">How does the subscription work?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Subscribing to NØ QUIT saves you 15% on every order. Your first shipment processes immediately,
+                and subsequent orders are charged and shipped every 30 days automatically. You will receive an email
+                reminder 3 days before each renewal.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Can I cancel my subscription?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Yes, anytime. There are no cancellation fees. Log into your account to cancel or pause your subscription,
+                or email support@noquitperformance.com and we will cancel it for you. Cancellations requested before
+                the 3-day renewal window will take effect before the next charge.
+              </div></div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-btn">Can I skip a month?<span class="accordion-icon"></span></button>
+              <div class="accordion-body"><div class="accordion-body-inner">
+                Yes. You can skip up to 2 shipments per year through your account portal. Log in, navigate to
+                your subscriptions, and select "Skip next shipment." Skips must be requested at least 2 days
+                before your renewal date.
+              </div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--dark" aria-labelledby="contact-heading">
+    <div class="container container--sm">
+      <div class="contact-block" data-animate="up">
+        <p class="t-label mb-3">Still Have Questions?</p>
+        <h3 id="contact-heading">We're here.</h3>
+        <p>
+          Our team responds to all inquiries within 24 hours on business days.
+          For faster answers, check the FAQ above or reach us by email.
+        </p>
+        <div class="contact-options">
+          <a href="mailto:support@noquitperformance.com" class="btn btn-primary btn--lg">
+            Email Support
+          </a>
+          <a href="product.html" class="btn btn-outline">
+            Shop NØ QUIT
+          </a>
+        </div>
+        <p class="t-body-sm mt-4" style="color:var(--c-text-dim);">
+          support@noquitperformance.com · Mon–Fri, 9am–5pm ET
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section style="background-color:var(--c-surface);border-top:1px solid var(--c-border);padding:var(--sp-7) 0;">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-4);">
+      <div data-animate="up">
+        <p class="t-label mb-2">Ready?</p>
+        <p class="t-display-4">Finish Strong. Recover Ready.</p>
+      </div>
+      <div style="display:flex;gap:var(--sp-3);" data-animate="up" data-delay="1">
+        <a href="product.html" class="btn btn-primary btn--lg">Shop NØ QUIT — $59</a>
+        <a href="science.html" class="btn btn-outline">The Science</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-mark"></a>
+        <p>A phenylcapsaicin capsule for functional fitness athletes who train hard and come back harder.</p>
+        <a href="product.html" class="btn btn-outline" style="font-size:11px;padding:12px 20px;">Shop NØ QUIT</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="product.html">NØ QUIT Capsules</a>
+        <a href="product.html#subscribe">Subscribe &amp; Save</a>
+        <a href="#shipping">Shipping Info</a>
+        <a href="#returns">Returns</a>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="science.html">The Science</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        © 2025 NOQUIT PERFORMANCE LLC — United States Only ·
+        These statements have not been evaluated by the FDA.
+        This product is not intended to diagnose, treat, cure, or prevent any disease.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-badge">GMP</span>
+        <span class="footer-badge">3rd-Party Tested</span>
+        <span class="footer-badge">US Only</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

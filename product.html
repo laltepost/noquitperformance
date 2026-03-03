@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NØ QUIT Phenylcapsaicin Capsules — 60 Capsules | NOQUIT PERFORMANCE</title>
+  <meta name="description" content="NØ QUIT Phenylcapsaicin Capsules. 60 capsules. 30 servings. 2.5mg phenylcapsaicin per serving (2 capsules of 1.25mg each). Built to support repeatable high-intensity training and recovery.">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <style>
+    /* ── PDP-SPECIFIC ──────────────────────────────── */
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      padding: calc(var(--header-h) + var(--sp-4)) 0 var(--sp-3);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .breadcrumb-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-text-dim);
+    }
+    .breadcrumb-inner a { transition: color var(--t-fast); }
+    .breadcrumb-inner a:hover { color: var(--c-chalk); }
+    .breadcrumb-sep { color: var(--c-text-dim); }
+
+    /* PRODUCT HERO */
+    .pdp-hero {
+      padding: var(--sp-7) 0;
+    }
+    .pdp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-7);
+      align-items: start;
+    }
+
+    /* GALLERY */
+    .gallery {
+      position: sticky;
+      top: calc(var(--header-h) + var(--sp-4));
+    }
+    .gallery-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      border-radius: var(--r-md);
+      background-color: var(--c-surface-2);
+      margin-bottom: var(--sp-3);
+      position: relative;
+    }
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transition: opacity 0.2s ease;
+    }
+    .gallery-main-badge {
+      position: absolute;
+      top: var(--sp-3);
+      left: var(--sp-3);
+      background-color: var(--c-steel-glow);
+      border: 1px solid var(--c-steel-dim);
+      border-radius: 2px;
+      padding: 4px 10px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-steel-light);
+    }
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-2);
+    }
+    .gallery-thumb {
+      aspect-ratio: 1;
+      border-radius: var(--r-sm);
+      overflow: hidden;
+      background-color: var(--c-surface-3);
+      cursor: pointer;
+      border: 1px solid var(--c-border);
+      transition: border-color var(--t-mid);
+    }
+    .gallery-thumb.active,
+    .gallery-thumb:hover { border-color: var(--c-steel); }
+    .gallery-thumb img { width: 100%; height: 100%; object-fit: contain; }
+
+    /* PURCHASE MODULE */
+    .purchase-module {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .pdp-brand {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-steel);
+    }
+    .pdp-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--c-white);
+    }
+    .pdp-subtitle {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--c-text);
+      text-transform: uppercase;
+    }
+
+    .pdp-review-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .pdp-review-count {
+      font-size: 12px;
+      color: var(--c-text);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+    }
+
+    .pdp-description {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--c-text);
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
+      padding: var(--sp-4) 0;
+    }
+
+    .pdp-section-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-text-dim);
+      margin-bottom: var(--sp-2);
+    }
+
+    .pdp-qty-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+
+    .pdp-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .pdp-add-btn {
+      font-size: 13px;
+      padding: 18px;
+      letter-spacing: 0.14em;
+    }
+    .pdp-buy-btn {
+      font-size: 13px;
+      padding: 18px;
+      letter-spacing: 0.14em;
+    }
+
+    .pdp-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      padding-top: var(--sp-3);
+      border-top: 1px solid var(--c-border);
+    }
+    .pdp-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--c-text);
+      letter-spacing: 0.04em;
+    }
+    .pdp-trust-item svg {
+      width: 15px; height: 15px;
+      color: var(--c-steel);
+      flex-shrink: 0;
+    }
+
+    /* BENEFITS STRIP */
+    .benefits-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
+      background-color: var(--c-surface);
+    }
+    .benefits-strip-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      padding: var(--sp-4) var(--sp-4);
+      border-right: 1px solid var(--c-border);
+    }
+    .benefits-strip-item:last-child { border-right: none; }
+    .bsi-icon {
+      width: 28px; height: 28px;
+      color: var(--c-steel);
+      flex-shrink: 0;
+    }
+    .bsi-text {}
+    .bsi-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--c-white);
+    }
+    .bsi-sub {
+      font-size: 11px;
+      color: var(--c-text);
+      margin-top: 2px;
+    }
+
+    /* KEY BENEFITS */
+    .benefits-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+    }
+    .benefit-item {
+      padding: var(--sp-5);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      background-color: var(--c-surface);
+      transition: border-color var(--t-mid);
+    }
+    .benefit-item:hover { border-color: var(--c-border-2); }
+    .benefit-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 40px;
+      color: var(--c-surface-4);
+      line-height: 1;
+      margin-bottom: var(--sp-2);
+    }
+    .benefit-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--c-white);
+      margin-bottom: var(--sp-2);
+      letter-spacing: 0.01em;
+    }
+    .benefit-body {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--c-text);
+    }
+
+    /* SCIENCE BLURB */
+    .pdp-science {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-7);
+      align-items: center;
+    }
+    .pdp-science-img {
+      height: 480px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .pdp-science-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    /* SUPPLEMENT FACTS */
+    .sf-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-7);
+      align-items: start;
+    }
+    .sf-notes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .sf-note {
+      padding: var(--sp-4);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-sm);
+    }
+    .sf-note-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-steel);
+      margin-bottom: var(--sp-1);
+    }
+    .sf-note-text {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--c-text);
+    }
+
+    /* SHIPPING/RETURNS */
+    .shipping-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+    }
+    .shipping-card {
+      padding: var(--sp-5);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+    }
+    .shipping-icon {
+      width: 24px; height: 24px;
+      color: var(--c-steel);
+      margin-bottom: var(--sp-3);
+    }
+    .shipping-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--c-white);
+      margin-bottom: var(--sp-2);
+      letter-spacing: 0.02em;
+    }
+    .shipping-body {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--c-text);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .pdp-grid { grid-template-columns: 1fr; }
+      .gallery { position: relative; top: auto; }
+      .benefits-strip { grid-template-columns: 1fr 1fr; }
+      .benefits-strip-item:nth-child(2) { border-right: none; }
+      .benefits-strip-item:nth-child(3) { border-top: 1px solid var(--c-border); }
+      .benefits-strip-item:nth-child(4) { border-top: 1px solid var(--c-border); border-right: none; }
+      .benefits-list { grid-template-columns: 1fr; }
+      .pdp-science { grid-template-columns: 1fr; }
+      .pdp-science-img { height: 300px; }
+      .sf-wrap { grid-template-columns: 1fr; }
+      .shipping-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .benefits-strip { grid-template-columns: 1fr; }
+      .benefits-strip-item { border-right: none; border-bottom: 1px solid var(--c-border); }
+      .benefits-strip-item:last-child { border-bottom: none; }
+      .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+<header class="site-header scrolled" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-mark" aria-label="NØ QUIT Performance — Home"></a>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="science.html">Science</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="product.html" class="nav-shop">Shop</a>
+    </nav>
+    <div class="header-right">
+      <button class="cart-trigger" aria-label="Open cart">
+        Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="product.html">Shop</a>
+  <a href="science.html">Science</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <div class="mobile-nav-footer">
+    <span class="t-label">noquitperformance.com</span>
+    <button id="mobileNavClose" class="btn-ghost t-label">Close</button>
+  </div>
+</nav>
+
+<!-- CART -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close-btn" id="cartClose">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+      </div>
+      <p>Your cart is empty.</p>
+      <a href="product.html" class="btn btn-outline">Shop NØ QUIT</a>
+    </div>
+    <div id="cartItemsWrap" style="display:none"></div>
+  </div>
+  <div class="cart-drawer-foot">
+    <div class="cart-totals">
+      <span class="cart-totals-label">Subtotal</span>
+      <span class="cart-totals-value" id="cartTotal">$0.00</span>
+    </div>
+    <a href="#" class="btn btn-primary btn--full btn--lg">Checkout</a>
+    <p class="cart-note">Free US shipping on orders over $65 · Secure checkout</p>
+  </div>
+</aside>
+
+<!-- ==========================================
+     MAIN
+========================================== -->
+<main>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-inner">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>NØ QUIT Phenylcapsaicin Capsules</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRODUCT HERO ──────────────────────────────── -->
+  <section class="pdp-hero section--dark" aria-labelledby="pdp-title">
+    <div class="container">
+      <div class="pdp-grid">
+
+        <!-- GALLERY -->
+        <div class="gallery">
+          <div class="gallery-main">
+            <img
+              id="galleryMain"
+              src="images/Precision-engineered_output__version_1.png"
+              alt="NØ QUIT Performance Phenylcapsaicin Capsules — 60 Capsules"
+              loading="eager"
+            >
+            <span class="gallery-main-badge">60 Capsules</span>
+          </div>
+          <div class="gallery-thumbs" role="list" aria-label="Product images">
+            <button
+              class="gallery-thumb active"
+              data-src="images/Precision-engineered_output__version_1.png"
+              aria-label="Product image 1"
+              role="listitem"
+            >
+              <img src="images/Precision-engineered_output__version_1.png" alt="" aria-hidden="true">
+            </button>
+            <button
+              class="gallery-thumb"
+              data-src="images/Finish_Strong__Recover_Ready__version_1.png"
+              aria-label="Product image 2"
+              role="listitem"
+            >
+              <img src="images/Finish_Strong__Recover_Ready__version_1.png" alt="" aria-hidden="true">
+            </button>
+            <button
+              class="gallery-thumb"
+              data-src="images/pomelli-image.png"
+              aria-label="Product image 3"
+              role="listitem"
+            >
+              <img src="images/pomelli-image.png" alt="" aria-hidden="true">
+            </button>
+          </div>
+        </div>
+
+        <!-- PURCHASE MODULE -->
+        <div class="purchase-module" id="purchaseModule">
+          <div>
+            <p class="pdp-brand mb-2">NOQUIT PERFORMANCE</p>
+            <h1 class="pdp-title" id="pdp-title">NØ QUIT<br>Phenylcapsaicin<br>Capsules</h1>
+            <p class="pdp-subtitle mt-2">60 Capsules · Dietary Supplement</p>
+          </div>
+
+          <div class="pdp-review-bar">
+            <div class="review-stars">
+              <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <a class="pdp-review-count" href="#pdp-reviews">12 reviews</a>
+          </div>
+
+          <p class="pdp-description">
+            A daily phenylcapsaicin capsule designed to support energy metabolism
+            and exercise performance when fatigue peaks. Built for functional fitness
+            athletes who train hard and come back harder.
+          </p>
+
+          <!-- PURCHASE OPTIONS -->
+          <div>
+            <p class="pdp-section-label">Purchase Option</p>
+            <div class="purchase-options" id="purchaseOptions" role="radiogroup" aria-label="Purchase options">
+
+              <label class="purchase-option selected" for="opt-subscribe">
+                <input type="radio" id="opt-subscribe" name="purchase" value="subscribe" checked>
+                <div class="po-radio"></div>
+                <div class="po-info">
+                  <p class="po-label">Subscribe &amp; Save — Billed Monthly</p>
+                  <p class="po-price">$50.15</p>
+                  <p class="po-sub">Free US shipping · Cancel anytime</p>
+                </div>
+                <span class="po-badge">Save 15%</span>
+              </label>
+
+              <label class="purchase-option" for="opt-onetime">
+                <input type="radio" id="opt-onetime" name="purchase" value="onetime">
+                <div class="po-radio"></div>
+                <div class="po-info">
+                  <p class="po-label">One-Time Purchase</p>
+                  <p class="po-price">$59.00</p>
+                  <p class="po-sub">Free US shipping over $65</p>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- QUANTITY -->
+          <div>
+            <p class="pdp-section-label">Quantity</p>
+            <div class="pdp-qty-row">
+              <div class="qty-selector" role="group" aria-label="Quantity">
+                <button class="qty-btn qty-dec" aria-label="Decrease quantity">−</button>
+                <div class="qty-sep"></div>
+                <span class="qty-val" aria-live="polite" aria-atomic="true">1</span>
+                <div class="qty-sep"></div>
+                <button class="qty-btn qty-inc" aria-label="Increase quantity">+</button>
+              </div>
+              <p class="t-body-sm" style="color:var(--c-text);">60 capsules · 30-day supply</p>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="pdp-ctas">
+            <button class="btn btn-primary btn--full btn--lg pdp-add-btn add-to-cart-btn">
+              Add to Cart
+            </button>
+            <button class="btn btn-outline btn--full btn--lg pdp-buy-btn">
+              Buy Now
+            </button>
+          </div>
+
+          <!-- TRUST -->
+          <div class="pdp-trust-row">
+            <div class="pdp-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              GMP Certified
+            </div>
+            <div class="pdp-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+              </svg>
+              3rd-Party Tested
+            </div>
+            <div class="pdp-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+              Free US Shipping $65+
+            </div>
+            <div class="pdp-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.34"/>
+              </svg>
+              30-Day Returns
+            </div>
+          </div>
+
+          <!-- COMPLIANCE NOTE -->
+          <p class="t-body-sm" style="color:var(--c-text-dim);font-size:11px;line-height:1.7;border-top:1px solid var(--c-border);padding-top:var(--sp-3);">
+            These statements have not been evaluated by the Food and Drug Administration.
+            This product is not intended to diagnose, treat, cure, or prevent any disease.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BENEFITS STRIP ────────────────────────────── -->
+  <div class="benefits-strip" aria-label="Product benefits overview">
+    <div class="benefits-strip-item" data-animate="up" data-delay="1">
+      <svg class="bsi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+      <div class="bsi-text">
+        <div class="bsi-title">Finish Strong</div>
+        <div class="bsi-sub">Supports peak-fatigue performance</div>
+      </div>
+    </div>
+    <div class="benefits-strip-item" data-animate="up" data-delay="2">
+      <svg class="bsi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-5.27"/>
+      </svg>
+      <div class="bsi-text">
+        <div class="bsi-title">Recover Ready</div>
+        <div class="bsi-sub">Supports post-training recovery</div>
+      </div>
+    </div>
+    <div class="benefits-strip-item" data-animate="up" data-delay="3">
+      <svg class="bsi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <div class="bsi-text">
+        <div class="bsi-title">Daily Precision</div>
+        <div class="bsi-sub">Two capsules · consistent daily use</div>
+      </div>
+    </div>
+    <div class="benefits-strip-item" data-animate="up" data-delay="4">
+      <svg class="bsi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M9 12l2 2 4-4"/><path d="M21 12c0-4.97-4.03-9-9-9S3 7.03 3 12s4.03 9 9 9 9-4.03 9-9z"/>
+      </svg>
+      <div class="bsi-text">
+        <div class="bsi-title">Clean Formula</div>
+        <div class="bsi-sub">Single ingredient · 3rd-party tested</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── KEY BENEFITS ──────────────────────────────── -->
+  <section class="section section--alt" aria-labelledby="benefits-heading">
+    <div class="container">
+      <p class="t-label section-label" data-animate="fade">What It Does</p>
+      <h2 class="t-display-3 mb-6" id="benefits-heading" data-animate="up">
+        Built for the athlete<br>who trains again tomorrow.
+      </h2>
+      <div class="benefits-list">
+        <div class="benefit-item" data-animate="up" data-delay="1">
+          <div class="benefit-num">01</div>
+          <div class="benefit-title">Performance When Fatigue Peaks</div>
+          <p class="benefit-body">
+            Phenylcapsaicin supports energy metabolism during high-intensity exercise.
+            Observed effects include improved time-to-exhaustion and output maintenance
+            in the final phases of hard training sessions.
+          </p>
+        </div>
+        <div class="benefit-item" data-animate="up" data-delay="2">
+          <div class="benefit-num">02</div>
+          <div class="benefit-title">Recovery After Hard Sessions</div>
+          <p class="benefit-body">
+            Supporting the body's natural recovery process means you return to your
+            next session with more in the tank. Don't lose the week to one hard day.
+            NØ QUIT is designed for what comes after.
+          </p>
+        </div>
+        <div class="benefit-item" data-animate="up" data-delay="3">
+          <div class="benefit-num">03</div>
+          <div class="benefit-title">Repeatable Training Intensity</div>
+          <p class="benefit-body">
+            Consistency over time is where adaptation happens. NØ QUIT is built to
+            support the capacity to train at high intensity repeatedly — week after week,
+            cycle after cycle.
+          </p>
+        </div>
+        <div class="benefit-item" data-animate="up" data-delay="4">
+          <div class="benefit-num">04</div>
+          <div class="benefit-title">No Dependency. No Crash.</div>
+          <p class="benefit-body">
+            No stimulants. No caffeine. No pre-workout crash cycle. A clean daily capsule
+            that supports your performance without creating new problems to manage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SUPPLEMENT FACTS ──────────────────────────── -->
+  <section class="section section--dark" aria-labelledby="sf-heading">
+    <div class="container">
+      <p class="t-label section-label" data-animate="fade">What's In It</p>
+      <h2 class="t-display-3 mb-6" id="sf-heading" data-animate="up">
+        Full label. Full disclosure.
+      </h2>
+      <div class="sf-wrap">
+        <div data-animate="up" data-delay="1">
+          <div class="sf-panel">
+            <div class="sf-head">
+              <h3>Supplement Facts</h3>
+              <p>Serving Size: 2 Capsules (1.25mg each) · Servings Per Container: 30</p>
+            </div>
+            <div class="sf-row" style="border-bottom:3px solid var(--c-chalk);padding-bottom:var(--sp-2);">
+              <span style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-text-dim);">Amount Per Serving</span>
+              <span style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-text-dim);">% Daily Value</span>
+            </div>
+            <div class="sf-row">
+              <span class="sf-name">Phenylcapsaicin (aXivite®)</span>
+              <span class="sf-val">2.5mg <span class="sf-dv">†</span></span>
+            </div>
+            <div class="sf-row">
+              <span class="sf-name" style="color:var(--c-text-dim);font-size:12px;">Other Ingredients: Microcrystalline Cellulose, Vegetable Capsule (Hypromellose), Magnesium Stearate (vegetable source)</span>
+              <span></span>
+            </div>
+            <div class="sf-foot">
+              † Daily Value not established.<br>
+              Contains no: gluten, dairy, soy, artificial colors, artificial flavors.<br>
+              Manufactured in a GMP-certified facility in the United States.
+            </div>
+          </div>
+        </div>
+
+        <div class="sf-notes" data-animate="up" data-delay="2">
+          <div class="sf-note">
+            <p class="sf-note-label">Active Ingredient</p>
+            <p class="sf-note-text">
+              Phenylcapsaicin (aXivite®) is a synthetic, next-generation capsaicinoid with
+              published research on exercise performance. We use the same dose range studied.
+              Nothing extra. Nothing hidden.
+            </p>
+          </div>
+          <div class="sf-note">
+            <p class="sf-note-label">Why These Excipients</p>
+            <p class="sf-note-text">
+              Microcrystalline cellulose is an inert filler needed to fill the capsule to
+              a usable size at a 2.5mg active dose. Magnesium stearate prevents ingredient
+              clumping in manufacturing. Hypromellose (HPMC) is a plant-based capsule shell.
+            </p>
+          </div>
+          <div class="sf-note">
+            <p class="sf-note-label">Testing &amp; Verification</p>
+            <p class="sf-note-text">
+              Every batch is independently tested for identity, purity, and potency.
+              Certificate of Analysis (CoA) available on request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCIENCE PREVIEW ───────────────────────────── -->
+  <section class="section section--alt" aria-labelledby="pdp-science-heading">
+    <div class="container">
+      <div class="pdp-science">
+        <div class="pdp-science-img" data-animate="scale">
+          <img
+            src="images/The_Protocol_for_Intensity_version_3.png"
+            alt="The Protocol for Intensity — NØ QUIT"
+            loading="lazy"
+          >
+        </div>
+        <div>
+          <p class="t-label section-label" data-animate="fade">The Research</p>
+          <h2 class="t-display-3" id="pdp-science-heading" data-animate="up">
+            Precision-engineered output.
+          </h2>
+          <div class="divider divider--v" data-animate="fade" data-delay="1"></div>
+          <p class="t-body-lg" style="color:var(--c-text);" data-animate="up" data-delay="1">
+            Phenylcapsaicin has been studied in peer-reviewed research for its effects
+            on VO₂ max, time-to-exhaustion, and metabolic efficiency. NØ QUIT is
+            formulated at the dose range used in published work.
+          </p>
+          <p class="t-body mt-3" style="color:var(--c-text-dim);" data-animate="up" data-delay="2">
+            This is not a weight-loss product. This is not a fat burner. The research
+            we reference is specifically on exercise performance — the ability to train
+            harder, recover faster, and repeat.
+          </p>
+          <div class="mt-5" data-animate="up" data-delay="3">
+            <a href="science.html" class="btn btn-outline">Read the full science →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ───────────────────────────────────── -->
+  <section class="section section--dark" id="pdp-reviews" aria-labelledby="pdp-reviews-heading">
+    <div class="container">
+      <p class="t-label section-label" data-animate="fade">What Athletes Say</p>
+      <h2 class="t-display-3 mb-6" id="pdp-reviews-heading" data-animate="up">5.0 / 5.0</h2>
+
+      <div class="grid-3">
+        <article class="review-card" data-animate="up" data-delay="1">
+          <div class="review-stars">
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-title">The only supplement on my list now.</div>
+          <p class="review-body">
+            I cut out everything else — pre-workouts, BCAA powders, all of it —
+            and I've been running NØ QUIT as my only supplement for six weeks.
+            My training hasn't changed. My recovery has. Simple math.
+          </p>
+          <div class="review-footer">
+            <span class="review-name">Sam R. — Chicago, IL</span>
+            <span class="review-verified">Verified</span>
+          </div>
+        </article>
+
+        <article class="review-card" data-animate="up" data-delay="2">
+          <div class="review-stars">
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-title">Subscribed after my first bottle.</div>
+          <p class="review-body">
+            Took about two weeks to notice a real difference in how I felt the day
+            after a tough session. Now on my second month. Already subscribed.
+            This is the kind of product that earns your loyalty quietly.
+          </p>
+          <div class="review-footer">
+            <span class="review-name">Kira T. — Seattle, WA</span>
+            <span class="review-verified">Verified</span>
+          </div>
+        </article>
+
+        <article class="review-card" data-animate="up" data-delay="3">
+          <div class="review-stars">
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="review-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-title">Built for athletes who aren't chasing aesthetics.</div>
+          <p class="review-body">
+            Most supplements are built for the guy who wants to look good in photos.
+            I want to be able to train five days a week without falling apart.
+            NØ QUIT is built for that. Different category entirely.
+          </p>
+          <div class="review-footer">
+            <span class="review-name">Derek M. — Nashville, TN</span>
+            <span class="review-verified">Verified</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ──────────────────────────────────────── -->
+  <section class="section section--alt" aria-labelledby="pdp-faq-heading">
+    <div class="container container--md">
+      <p class="t-label section-label" data-animate="fade">Questions</p>
+      <h2 class="t-display-3 mb-6" id="pdp-faq-heading" data-animate="up">Have questions?</h2>
+
+      <div data-animate="up" data-delay="1">
+        <div class="accordion-item">
+          <button class="accordion-btn">How do I take NØ QUIT?<span class="accordion-icon"></span></button>
+          <div class="accordion-body"><div class="accordion-body-inner">
+            Take 2 capsules daily. On training days, take 30–60 minutes before your session.
+            On rest days, take with a meal. Do not exceed 2 capsules per day.
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">Can I stack NØ QUIT with other supplements?<span class="accordion-icon"></span></button>
+          <div class="accordion-body"><div class="accordion-body-inner">
+            NØ QUIT is designed to stand alone as a daily performance capsule. It contains no
+            stimulants, so it can be taken alongside most other supplements. If you are taking
+            any medications or have a medical condition, consult your healthcare provider first.
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">How long until I notice results?<span class="accordion-icon"></span></button>
+          <div class="accordion-body"><div class="accordion-body-inner">
+            Most users report noticing effects within 2–4 weeks of consistent daily use.
+            As a non-stimulant, NØ QUIT builds its support over time rather than delivering
+            an acute jolt. Consistency matters more than timing.
+          </div></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">What is the return policy?<span class="accordion-icon"></span></button>
+          <div class="accordion-body"><div class="accordion-body-inner">
+            We offer a 30-day satisfaction guarantee on first orders. If NØ QUIT isn't right for you,
+            contact us within 30 days of delivery for a refund. See our full returns policy for details.
+          </div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--sp-5);text-align:center;" data-animate="up" data-delay="2">
+        <a href="faq.html" class="btn btn-outline">View all FAQs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SHIPPING / RETURNS ─────────────────────────── -->
+  <section class="section section--dark" id="shipping" aria-labelledby="shipping-heading">
+    <div class="container">
+      <p class="t-label section-label" data-animate="fade">Shipping &amp; Returns</p>
+      <h2 class="t-display-3 mb-6" id="shipping-heading" data-animate="up">
+        Delivered to your door.<br>Guaranteed.
+      </h2>
+      <div class="shipping-grid">
+        <div class="shipping-card" data-animate="up" data-delay="1">
+          <svg class="shipping-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v3h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          <div class="shipping-title">US Shipping</div>
+          <p class="shipping-body">
+            Free standard shipping on orders over $65.
+            Standard shipping (5–7 business days): $6.95.
+            Expedited shipping (2–3 business days): $14.95.
+            All orders ship from our US fulfillment center.
+            US domestic only — we do not ship internationally at this time.
+          </p>
+        </div>
+        <div class="shipping-card" data-animate="up" data-delay="2">
+          <svg class="shipping-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 .49-4.34"/>
+          </svg>
+          <div class="shipping-title">30-Day Returns</div>
+          <p class="shipping-body">
+            First-order satisfaction guarantee. If NØ QUIT isn't right for you,
+            contact us within 30 days of delivery for a full refund — no questions asked.
+            Return shipping label provided. Subscriptions can be cancelled anytime with no penalty.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- STICKY CTA — Mobile Only -->
+<div class="sticky-cta" id="stickyCta" aria-label="Quick add to cart">
+  <div class="sticky-cta-info">
+    <div class="sticky-cta-name">NØ QUIT Capsules</div>
+    <div class="sticky-cta-price">From $50.15</div>
+  </div>
+  <button class="btn btn-primary add-to-cart-btn" style="flex-shrink:0;">Add to Cart</button>
+</div>
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-mark" aria-label="NØ QUIT Performance"></a>
+        <p>A phenylcapsaicin capsule for functional fitness athletes who train hard and come back harder.</p>
+        <a href="product.html" class="btn btn-outline" style="font-size:11px;padding:12px 20px;">Shop NØ QUIT</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="product.html">NØ QUIT Capsules</a>
+        <a href="product.html#subscribe">Subscribe &amp; Save</a>
+        <a href="#shipping">Shipping Info</a>
+        <a href="#shipping">Returns</a>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <a href="science.html">The Science</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        © 2025 NOQUIT PERFORMANCE LLC — United States Only ·
+        These statements have not been evaluated by the FDA.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-badge">GMP</span>
+        <span class="footer-badge">3rd-Party Tested</span>
+        <span class="footer-badge">US Only</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
