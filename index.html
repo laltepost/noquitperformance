@@ -148,10 +148,16 @@
       overflow: hidden;
       padding: var(--sp-7) var(--sp-6);
     }
-    .pomelli-img-col img,
-    .pomelli-video {
+    .pomelli-img-col img {
       width: 100%;
       max-width: 520px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .pomelli-video {
+      width: 100%;
+      max-width: 680px;
       height: auto;
       object-fit: contain;
       display: block;
@@ -601,7 +607,7 @@
   <section class="pomelli-section" aria-labelledby="pomelli-heading">
     <div class="pomelli-img-col" data-animate="left">
       <video class="pomelli-video"
-        src="video/bottle_animation.mp4"
+        src="video/bottle_animation_watermarkfree.mp4"
         poster="images/pomelli-image.png"
         autoplay muted loop playsinline
         preload="metadata"
