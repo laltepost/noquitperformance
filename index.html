@@ -148,11 +148,28 @@
       overflow: hidden;
       padding: var(--sp-7) var(--sp-6);
     }
-    .pomelli-img-col img {
+    .pomelli-img-col img,
+    .pomelli-video {
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
+      height: auto;
       object-fit: contain;
       display: block;
+    }
+
+    /* Cinematic clip-path wipe + deep slide */
+    .pomelli-img-col[data-animate="left"] {
+      transform: translateX(-48px);
+      clip-path: inset(0 100% 0 0);
+      transition:
+        opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        clip-path 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .pomelli-img-col[data-animate="left"].in-view {
+      opacity: 1;
+      transform: none !important;
+      clip-path: inset(0 0 0 0);
     }
     .pomelli-text-col {
       background-color: var(--c-black);
@@ -582,12 +599,14 @@
 
   <!-- ── PRODUCT SHOWCASE ─────────────────────────── -->
   <section class="pomelli-section" aria-labelledby="pomelli-heading">
-    <div class="pomelli-img-col" data-animate="scale">
-      <img
-        src="images/pomelli-image.png"
-        alt="NØ QUIT Performance Phenylcapsaicin Capsules — 60 capsules per bottle"
-        loading="lazy"
-      >
+    <div class="pomelli-img-col" data-animate="left">
+      <video class="pomelli-video"
+        src="video/bottle_animation.mp4"
+        poster="images/pomelli-image.png"
+        autoplay muted loop playsinline
+        preload="metadata"
+        aria-label="NØ QUIT Performance bottle animation">
+      </video>
     </div>
     <div class="pomelli-text-col">
       <div class="pomelli-eyebrow" data-animate="fade">
