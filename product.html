@@ -226,39 +226,53 @@
       margin-top: 2px;
     }
 
-    /* KEY BENEFITS */
+    /* KEY BENEFITS — horizontal scroll-snap rail */
     .benefits-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-auto-flow: column;
+      grid-auto-columns: clamp(280px, 32vw, 360px);
       gap: var(--sp-4);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      padding-bottom: var(--sp-3);
+      scrollbar-width: thin;
+      scrollbar-color: var(--c-border-2) transparent;
     }
+    .benefits-list::-webkit-scrollbar { height: 4px; }
+    .benefits-list::-webkit-scrollbar-track { background: transparent; }
+    .benefits-list::-webkit-scrollbar-thumb { background: var(--c-border-2); border-radius: 2px; }
     .benefit-item {
-      padding: var(--sp-5);
-      border: 1px solid var(--c-border);
+      scroll-snap-align: start;
+      padding: var(--sp-6) var(--sp-5);
+      border: 1px solid var(--c-border-2);
       border-radius: var(--r-md);
-      background-color: var(--c-surface);
+      background-color: var(--c-surface-2);
       transition: border-color var(--t-mid);
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
     }
     .benefit-item:hover { border-color: var(--c-border-2); }
     .benefit-num {
       font-family: var(--font-display);
       font-weight: 900;
-      font-size: 40px;
-      color: var(--c-surface-4);
+      font-size: 64px;
+      color: var(--c-steel);
       line-height: 1;
-      margin-bottom: var(--sp-2);
+      margin-bottom: var(--sp-4);
     }
     .benefit-title {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 17px;
+      font-size: 19px;
       color: var(--c-white);
-      margin-bottom: var(--sp-2);
+      margin-bottom: var(--sp-3);
       letter-spacing: 0.01em;
     }
     .benefit-body {
-      font-size: 13px;
-      line-height: 1.8;
+      font-size: 14px;
+      line-height: 1.75;
       color: var(--c-text);
     }
 
@@ -424,8 +438,8 @@
       <span class="cart-totals-label">Subtotal</span>
       <span class="cart-totals-value" id="cartTotal">$0.00</span>
     </div>
-    <a href="#" class="btn btn-primary btn--full btn--lg">Checkout</a>
-    <p class="cart-note">Free US shipping on orders over $65 · Secure checkout</p>
+    <button type="button" class="btn btn-primary btn--full btn--lg" disabled aria-disabled="true">Checkout opens at launch</button>
+    <p class="cart-note">Free US shipping on orders over $65. Sign up below for launch notice.</p>
   </div>
 </aside>
 
@@ -523,7 +537,7 @@
                 <input type="radio" id="opt-subscribe" name="purchase" value="subscribe" checked>
                 <div class="po-radio"></div>
                 <div class="po-info">
-                  <p class="po-label">Subscribe &amp; Save — Billed Monthly</p>
+                  <p class="po-label">Subscribe &amp; Save · Billed Monthly</p>
                   <p class="po-price">$50.15</p>
                   <p class="po-sub">Free US shipping · Cancel anytime</p>
                 </div>
@@ -597,7 +611,7 @@
           </div>
 
           <!-- COMPLIANCE NOTE -->
-          <p class="t-body-sm" style="color:var(--c-text-dim);font-size:11px;line-height:1.7;border-top:1px solid var(--c-border);padding-top:var(--sp-3);">
+          <p class="t-body-sm" style="color:var(--c-text);font-size:13px;line-height:1.7;border-top:1px solid var(--c-border);padding-top:var(--sp-3);">
             These statements have not been evaluated by the Food and Drug Administration.
             This product is not intended to diagnose, treat, cure, or prevent any disease.
           </p>
@@ -677,7 +691,7 @@
           <div class="benefit-title">Repeatable Training Intensity</div>
           <p class="benefit-body">
             Consistency over time is where adaptation happens. NØ QUIT is built to
-            support the capacity to train at high intensity repeatedly — week after week,
+            support the capacity to train at high intensity repeatedly, week after week,
             cycle after cycle.
           </p>
         </div>
@@ -780,7 +794,7 @@
           </p>
           <p class="t-body mt-3" style="color:var(--c-text-dim);" data-animate="up" data-delay="2">
             This is not a weight-loss product. This is not a fat burner. The research
-            we reference is specifically on exercise performance — the ability to train
+            we reference is specifically on exercise performance, the ability to train
             harder, recover faster, and repeat.
           </p>
           <div class="mt-5" data-animate="up" data-delay="3">
@@ -808,8 +822,8 @@
           </div>
           <div class="review-title">The only supplement on my list now.</div>
           <p class="review-body">
-            I cut out everything else — pre-workouts, BCAA powders, all of it —
-            and I've been running NØ QUIT as my only supplement for six weeks.
+            I cut out everything else: pre-workouts, BCAA powders, all of it.
+            I've been running NØ QUIT as my only supplement for six weeks.
             My training hasn't changed. My recovery has. Simple math.
           </p>
           <div class="review-footer">
@@ -928,7 +942,7 @@
             Standard shipping (5–7 business days): $6.95.
             Expedited shipping (2–3 business days): $14.95.
             All orders ship from our US fulfillment center.
-            US domestic only — we do not ship internationally at this time.
+            US domestic only. We do not ship internationally at this time.
           </p>
         </div>
         <div class="shipping-card" data-animate="up" data-delay="2">
@@ -939,7 +953,7 @@
           <div class="shipping-title">30-Day Returns</div>
           <p class="shipping-body">
             First-order satisfaction guarantee. If NØ QUIT isn't right for you,
-            contact us within 30 days of delivery for a full refund — no questions asked.
+            contact us within 30 days of delivery for a full refund. No questions asked.
             Return shipping label provided. Subscriptions can be cancelled anytime with no penalty.
           </p>
         </div>
@@ -970,20 +984,20 @@
         <a href="product.html" class="btn btn-outline" style="font-size:11px;padding:12px 20px;">Shop NØ QUIT</a>
       </div>
       <div class="footer-col">
-        <h4>Shop</h4>
+        <h3>Shop</h3>
         <a href="product.html">NØ QUIT Capsules</a>
         <a href="product.html#subscribe">Subscribe &amp; Save</a>
         <a href="#shipping">Shipping Info</a>
         <a href="#shipping">Returns</a>
       </div>
       <div class="footer-col">
-        <h4>Learn</h4>
+        <h3>Learn</h3>
         <a href="science.html">The Science</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
+        <h3>Legal</h3>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
         <a href="#">Accessibility</a>

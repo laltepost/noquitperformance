@@ -56,48 +56,60 @@
       -webkit-text-stroke: 1.5px var(--c-steel-light);
     }
 
+    /* VALUES — editorial poster */
     .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-4);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
     .value-card {
-      padding: var(--sp-6) var(--sp-5);
-      border: 1px solid var(--c-border);
-      border-radius: var(--r-md);
       position: relative;
+      padding: var(--sp-7) 0;
+      border-top: 1px solid var(--c-border);
+      border-radius: 0;
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) 2fr;
+      gap: var(--sp-5);
+      align-items: center;
       overflow: hidden;
     }
-    .value-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background-color: var(--c-steel);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--t-slow) var(--ease);
+    .value-card:last-child {
+      border-bottom: 1px solid var(--c-border);
     }
-    .value-card:hover::before { transform: scaleX(1); }
+    .value-card::before { display: none; }
     .value-card-num {
       font-family: var(--font-display);
       font-weight: 900;
-      font-size: 60px;
-      color: var(--c-surface-4);
-      line-height: 1;
-      margin-bottom: var(--sp-3);
+      font-size: clamp(140px, 18vw, 260px);
+      color: var(--c-surface-3);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      margin: 0;
     }
     .value-card h3 {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 20px;
+      font-size: clamp(28px, 4vw, 48px);
       color: var(--c-white);
-      margin-bottom: var(--sp-2);
+      line-height: 1.05;
+      margin-bottom: var(--sp-3);
     }
     .value-card p {
-      font-size: 13px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.7;
       color: var(--c-text);
+      max-width: 56ch;
+    }
+    @media (max-width: 900px) {
+      .value-card {
+        grid-template-columns: 1fr;
+        gap: var(--sp-3);
+        padding: var(--sp-5) 0;
+        align-items: flex-start;
+      }
+      .value-card-num {
+        font-size: clamp(96px, 28vw, 160px);
+      }
     }
 
     .why-text {
@@ -127,7 +139,7 @@
       flex-shrink: 0;
       min-width: 36px;
     }
-    .standard-text h4 {
+    .standard-text h3 {
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 16px;
@@ -227,8 +239,8 @@
       <span class="cart-totals-label">Subtotal</span>
       <span class="cart-totals-value" id="cartTotal">$0.00</span>
     </div>
-    <a href="#" class="btn btn-primary btn--full btn--lg">Checkout</a>
-    <p class="cart-note">Free US shipping on orders over $65</p>
+    <button type="button" class="btn btn-primary btn--full btn--lg" disabled aria-disabled="true">Checkout opens at launch</button>
+    <p class="cart-note">Free US shipping on orders over $65. Sign up below for launch notice.</p>
   </div>
 </aside>
 
@@ -288,7 +300,7 @@
         <p class="t-body-lg" style="color:var(--c-text);" data-animate="up" data-delay="2">
           The athletes we built NØ QUIT for don't train for photos.
           They train for performance. They show up Monday through Saturday.
-          They need something that actually supports consistency — not something
+          They need something that actually supports consistency, not something
           that generates a feeling.
         </p>
         <p class="t-body-lg" style="color:var(--c-text);" data-animate="up" data-delay="3">
@@ -302,7 +314,7 @@
         <blockquote style="border-left:2px solid var(--c-steel);padding-left:var(--sp-5);" data-animate="up" data-delay="4">
           <p class="t-serif" style="font-size:clamp(22px,3vw,32px);color:var(--c-chalk);line-height:1.5;">
             "Consistency is the edge. Not the jolt. Not the pump.
-            The capacity to come back tomorrow — and the day after that."
+            The capacity to come back tomorrow. And the day after that."
           </p>
           <cite style="display:block;font-family:var(--font-body);font-style:normal;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--c-text-dim);margin-top:var(--sp-3);">
             — NOQUIT PERFORMANCE
@@ -343,7 +355,7 @@
           <h3>Built for Consistency</h3>
           <p>
             NØ QUIT is a daily supplement, not a pre-workout event. It's designed to support
-            the body over time — to be part of a consistent training practice, not a
+            the body over time, to be part of a consistent training practice, not a
             single-session spike. Consistency is where results come from.
           </p>
         </div>
@@ -362,28 +374,28 @@
         <div class="standard-item" data-animate="up" data-delay="1">
           <div class="standard-num">1</div>
           <div class="standard-text">
-            <h4>Research-Aligned Dosing</h4>
+            <h3>Research-Aligned Dosing</h3>
             <p>Every dose in NØ QUIT corresponds to the range studied in published research. No inflation. No guesswork.</p>
           </div>
         </div>
         <div class="standard-item" data-animate="up" data-delay="2">
           <div class="standard-num">2</div>
           <div class="standard-text">
-            <h4>GMP Manufacturing</h4>
-            <p>Made in a US-based facility operating under cGMP — the FDA's standard for dietary supplements.</p>
+            <h3>GMP Manufacturing</h3>
+            <p>Made in a US-based facility operating under cGMP, the FDA's standard for dietary supplements.</p>
           </div>
         </div>
         <div class="standard-item" data-animate="up" data-delay="3">
           <div class="standard-num">3</div>
           <div class="standard-text">
-            <h4>Third-Party Testing</h4>
+            <h3>Third-Party Testing</h3>
             <p>Independent testing for identity, purity, potency, and contaminants. Every batch. Not just once.</p>
           </div>
         </div>
         <div class="standard-item" data-animate="up" data-delay="4">
           <div class="standard-num">4</div>
           <div class="standard-text">
-            <h4>Honest Language</h4>
+            <h3>Honest Language</h3>
             <p>We use only structure/function claims supported by research. No disease claims. No guaranteed outcomes. No hype.</p>
           </div>
         </div>
@@ -408,7 +420,7 @@
             athletes who train hard and come back harder.
           </p>
           <div style="margin-top:var(--sp-5);display:flex;flex-direction:column;gap:var(--sp-3);" data-animate="up" data-delay="2">
-            <a href="product.html" class="btn btn-primary btn--lg">Shop NØ QUIT — $59</a>
+            <a href="product.html" class="btn btn-primary btn--lg">Shop NØ QUIT · $59</a>
             <a href="science.html" class="btn btn-outline">Read the science →</a>
           </div>
         </div>
@@ -452,20 +464,20 @@
         <a href="product.html" class="btn btn-outline" style="font-size:11px;padding:12px 20px;">Shop NØ QUIT</a>
       </div>
       <div class="footer-col">
-        <h4>Shop</h4>
+        <h3>Shop</h3>
         <a href="product.html">NØ QUIT Capsules</a>
         <a href="product.html#subscribe">Subscribe &amp; Save</a>
         <a href="faq.html#shipping">Shipping Info</a>
         <a href="faq.html#returns">Returns</a>
       </div>
       <div class="footer-col">
-        <h4>Learn</h4>
+        <h3>Learn</h3>
         <a href="science.html">The Science</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
+        <h3>Legal</h3>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
         <a href="#">Accessibility</a>
